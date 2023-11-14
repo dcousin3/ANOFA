@@ -87,9 +87,8 @@ formula according to the data format.</p></dd>
 <dd><p>Dataframe in one of wide, long, raw or compiled format;</p></dd>
 
 
-<dt>...</dt>
-<dd><p>In addition to the parameters above, <code>anofa</code> also accept a number of
-optional arguments (to be determined)?</p></dd>
+<dt>factors</dt>
+<dd><p>For raw data formats, provide the factor names.</p></dd>
 
 </dl></div>
     <div id="value">
@@ -192,17 +191,7 @@ See the vignette <code>DataFormatsForFrequencies</code> for more on data format 
 <span class="r-out co"><span class="r-pr">#&gt;</span> 15       PI      BM      20</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Real-data example using a four-way design</span></span></span>
-<span class="r-in"><span><span class="co"># the Detergent data from the vcdExtra package</span></span></span>
-<span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://friendly.github.io/vcdExtra/" class="external-link">vcdExtra</a></span><span class="op">)</span> </span></span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>package 'vcdExtra' was built under R version 4.3.1</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Loading required package: vcd</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>package 'vcd' was built under R version 4.3.1</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Loading required package: grid</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Loading required package: gnm</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>package 'gnm' was built under R version 4.3.1</span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="co"># attach the dataset</span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">Detergent</span><span class="op">)</span><span class="co">#'</span></span></span>
+<span class="r-in"><span><span class="co"># the Detergent data (also found in the vcdExtra package)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># list it as a data.frame (more compact)</span></span></span>
 <span class="r-in"><span><span class="va">dta</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span><span class="va">Detergent</span><span class="op">)</span></span></span>
@@ -280,7 +269,6 @@ See the vignette <code>DataFormatsForFrequencies</code> for more on data format 
 <span class="r-out co"><span class="r-pr">#&gt;</span> Intensity:Pitch 0.9923  2      0.866 0.6486 0.1012</span>
 <span class="r-in"><span><span class="fu"><a href="explain.html">explain</a></span><span class="op">(</span><span class="va">w</span><span class="op">)</span>   <span class="co"># human-readable ouptut</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "method explain not yet done..."</span>
-<span class="r-in"><span></span></span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>

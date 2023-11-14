@@ -1,0 +1,13 @@
+^.git$
+^doc$
+^docs$
+^Meta$
+^cran-comments.md
+^CRAN-RELEASE$
+^pkgdown$
+^_pkgdown\.yml$
+^README\.Rmd$
+^README_files$
+^logo.png$
+^revdep$
+^CRAN-SUBMISSION$

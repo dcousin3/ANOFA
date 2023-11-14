@@ -1,0 +1,187 @@
+---
+title: "What is Analysis of Frequency Data?"
+bibliography: "../inst/REFERENCES.bib"
+csl: "../inst/apa-6th.csl"
+output: 
+  rmarkdown::html_vignette
+description: >
+  This vignette describes what an analysis of frequency data is.
+vignette: >
+  %\VignetteIndexEntry{What is Analysis of Frequency Data?}
+  %\VignetteEngine{knitr::rmarkdown}
+  \usepackage[utf8]{inputenc}
+---
+
+The _ANalysis Of Frequency datA_ (ANOFA) is a framework for analyzing frequencies (a.k.a. counts) of
+classification data. This framework is very similar to the well-known ANOVA and uses the same general
+approach. It allows analyzing _main effects_ and _interaction effects_It also allow analyzing _simple effects_ (in case of 
+interactions) as well as _orthogonal contrats_. Further, ANOFA makes it easy to generate frequency plots
+which includes confidence intervals, and to compute _eta-square_ as a measure of effect size. Finally,
+power planning is easy within ANOFA.
+
+```{r, echo = FALSE, message = FALSE, results = 'hide', warning = FALSE}
+cat("this will be hidden; use for general initializations.\n")
+library(ANOFA)
+library(ggplot2)
+library(superb)
+# generate some random data with no meaning
+set.seed(43)
+#probs  #alone                 #ingroup               #harass                #shout
+pr <- c(0.4/12,1.4/12,0.5/12,  2.3/12,1.0/12,0.5/12,  0.5/12,2.0/12,0.4/12,  0.5/12,2.0/12,0.5/12)
+dta <- GRF( list(Gender          = c("boy", "girl", "other"), 
+                 TypeOfInterplay = c("alone", "ingroup", "harrass", "shout")
+            ),
+            300,
+            pr
+        )
+```
+
+## A basic example
+
+As an example, suppose that you observe a class of primary school students, trying to 
+ascertain the different sorts of behaviors. You might use an obsrevation grid where, 
+for every kid observed, you check various things, such as
+
+| Student Id: A   |                          |
+|:----------------|-------------------------|
+|**Gender:**        | Boy [**x**] Girl [ ] Other [ ]   |
+|**Type of interplay:**  | Play alone [**x**] Play in group [ ] Harrass others [ ] Shout against other [ ] |
+|**etc.** |
+
+This grid categorizes the participants according to two factors, `Gender`, and `TypeOfInterplay`. 
+
+From these observations, one may wish to know if gender is more related to one type of interplay. Alternatively, 
+genders could be evenly spread across types of interplay. In the second case, there is no _interaction_ between the 
+factors.
+
+## Some data
+
+Once collected through observations, the data can be formated in one of many ways (see the vignette 
+[Data formats](https://dcousin3.github.io/ANOFA/articles/DataFormatsForFrequencies.html)). The raw format
+could look like 
+
+| Id | boy  | girl  | other | alone | in-group | harass | shout |
+|----|------|-------|-------|-------|----------|--------|-------|
+| A  | 1    | 0     | 0     | 1     | 0        |  0     |  0    |
+| B  | 0    | 0     | 1     | 0     | 0        |  1     |  0    |
+| C  | 0    | 1     | 0     | 0     | 0        |  0     |  1    |
+| D  | 1    | 0     | 0     | 0     | 1        |  0     |  0    |
+| ...|      |       |       |       |          |        |       |
+
+For a more compact representation, the data could be _compiled_ into a table
+with all the combination of gender $\times$ types of interplay, hence 
+resulting in 12 cells. The results (totally ficticious) looks like (assuming that
+they are stored in a data.frame named ``dta``):
+
+```{r, message = FALSE, warning = FALSE}
+dta
+```
+
+for a grand total of `r sum(dta$Freq)` childs observed.
+
+## Analyzing the data
+
+The frequencies can be analyzed using the _Analysis of Frequency Data_ (ANOFA) framework [@lc23b].
+This framework only assumes that the population is _multinomial_ (which means that the population
+has certain probabilities for each cell). The relevant test statistic is a $G$ statistic, whose
+significance is assessed using a chi-square table.
+
+*ANOFA* works pretty much the same as an *ANOFA* except that instead of looking at the means in each
+cell, its examines the count of observations in each cell.
+
+To run an analysis of the data frame ``dta``, simply use:
+
+```{r, warning = FALSE}
+library(ANOFA)
+
+w <- anofa(Freq ~ Gender * TypeOfInterplay, data = dta) 
+```
+
+This is it. The formula indicates that the counts are stored in column ``Freq`` and that 
+the factors are ``Gender`` and ``TypeOfInterplay``, each stored in its own column.
+(if your data are organized differently, see 
+[Data formats](https://dcousin3.github.io/ANOFA/articles/DataFormatsForFrequencies.html)).
+
+At this point, you might want a plot showing the counts on the vertical axis:
+
+```{r, message=FALSE, warning=FALSE, fig.width=4, fig.height=3, fig.cap="**Figure 1**. The frequencies of the ficticious data as a function of Gender and Type of Interplay. Error bars show difference-adjusted 95% confidence intervals."}
+anofaPlot(w) 
+```
+
+We can note a strong interaction, the `ingroup` activity not being distributed the same as a 
+function of ``Gender``. To confirm the interaction, let's look at the ANOFA table:
+
+```{r}
+summary(w)
+```
+
+Indeed, the interaction (last line) is significant ($G(6) = 65.92$, $p < .001$). The $G$ statistics is
+corrected for small sample but the correction is typically small (as seen in the fourth column).
+
+We might want to examine whether the frequencies of interplay are equivalent separately for each ``Gender``, 
+even though examination of the plot suggest that it is only the case for the ``other`` gender. This is
+achieved with an analysis of the _simple effects_ of `TypeOfInterplay` within each level of `Gender`:
+
+```{r}
+e <- emFrequencies(w, Freq ~ TypeOfInterplay | Gender)
+summary(e)
+```
+
+As seen, for boys and girls, the type of interplay differ significantly (both $p < .002$); for 
+``others``, as expected from the plot, this is not the case ($G(3) = 1.57$, $p = 0.46$).
+
+If really, you need to confirm that the major difference is caused by the ``ingroup`` type of
+activity (in these ficticious data), you could follow-up with a contrast analysis. We might
+compare `alone` to `harass`, both to `shout`, and finally the three of them to `ingroup`.
+
+```{r}
+f <- contrastFrequencies(e, list(
+    "alone vs. harass                     " = c(-1,    0, +1,    0  ),
+    "(alone & harass) vs. shout           " = c(-1/2,  0, -1/2, +1  ),
+    "(alone & harass & shout) vs. in-group" = c(-1/3, +1, -1/3, -1/3)
+    
+))
+summary(f)
+```
+
+Because the contrast analysis is based on the simple effects within ``Gender`` (variable ``e``),
+we get three contrasts for each gender. As seen, for boys, `in-group` is the sole condition
+triggering the difference. Same for girls. Finally, there are no difference for the
+last group.
+
+
+## Additivity of the decomposition (optional)
+
+The main advandage of ANOFA is that all the decomposition are entirely additive.
+
+If, for example, you sum the $G$s and degrees of freedom of the contrasts, with e.g., 
+
+```{r, results="hold"}
+sum(summary(f)[,1])  # Gs
+sum(summary(f)[,2])  # degrees of freedom
+```
+
+you get exacly the same as the simple effects:
+
+```{r, results="hold"}
+sum(summary(e)[,1])  # Gs
+sum(summary(e)[,2])  # degrees of freedom
+```
+
+which is also the same as the main analysis done first, adding the main effect of ``TypeOfInterplay`` and its 
+interaction with ``Gender`` (lines 3 and 4):
+
+```{r, results="hold"}
+sum(summary(w)[c(3,4),1])  # Gs
+sum(summary(w)[c(3,4),2])  # degrees of freedom
+```
+
+In other words, **the decompositions preserved all the information available**. This is the 
+defining characteristic of ANOFA.
+
+
+
+# References
+
+
+

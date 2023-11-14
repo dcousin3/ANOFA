@@ -1,0 +1,180 @@
+---
+title: "Data formats for frequencies"
+bibliography: "../inst/REFERENCES.bib"
+csl: "../inst/apa-6th.csl"
+output: 
+  rmarkdown::html_vignette
+description: >
+  This vignette describes the various ways that frequencies can be entered in a data.frame.
+vignette: >
+  %\VignetteIndexEntry{Data formats for frequencies}
+  %\VignetteEngine{knitr::rmarkdown}
+  \usepackage[utf8]{inputenc}
+---
+
+```{r, echo = FALSE, message = FALSE, results = 'hide', warning = FALSE}
+cat("this is hidden; general initializations.\n")
+library(ANOFA)
+w<-anofa(Frequency ~ Intensity * Pitch, minimalExample)
+dataRaw      <- toRaw(w)
+dataWide     <- toWide(w)
+dataCompiled <-toCompiled(w)
+dataLong     <- toLong(w)
+```
+
+# Data formats for frequencies
+
+Frequencies are actually not raw data: they are the counts of data belonging to 
+a certain cell of your design. As such, they are _summary statistics_, a bit like
+the mean is a summary statistic of data. In this vignette, we review various
+ways that data can be coded in a data frame.
+
+All along, we use a simple example, (ficticious) data of speakers classified
+according to their ability to play high intensity sound (low ability, medium
+ability, or high ability, three levels) and the pitch with which they play
+these sound (soft or hard, two levels). This is therefore a design with 
+two factors, noted in brief a $3 \times 2$ design. A total of 20 speakers
+have been examined ($N=20$).
+
+Before we begin, we load the package ``ANOFA``
+(if is not present on your computer, first upload it to your computer from 
+CRAN or from the source repository
+``devtools::install_github("dcousin3/ANOFA")``): 
+
+```{r, message=FALSE, warning=FALSE, echo=TRUE, eval=TRUE}
+library(ANOFA)   
+```
+
+## First format: Raw data format
+
+In this format, there is one line per _subject_ and one column for each 
+possible category (one for low, one for medium, etc.). The column contains
+a 1 (a checkmark if you wish) if the subject is classified in this category
+and zero for the alternative categories. In a $3 \times 2$ design, there is 
+therefore a total of $3+2 = 5$ columns.
+
+The raw data are:
+
+```{r, message=FALSE, warning=FALSE, echo=TRUE, eval=TRUE}
+dataRaw
+```
+
+To provide raw data to ``anofa()``, the formula must be given as
+
+```{r, message=FALSE, warning=FALSE, echo=TRUE, eval=TRUE}
+w <- anofa( ~ cbind(Low,Medium,High) + cbind(Soft,Hard), dataRaw)
+```
+
+where ``cbind()`` is used to group the categories of a single factor.
+The formula has no left-hand side (lhs) term because the categories are
+signaled by the columns named on the left.
+
+This format is actually the closest to how the data are recorded: if you 
+are coding the data manually, you would have a score sheed and placing 
+checkmarks were appropriate.
+
+## Second format: Wide data format
+
+In this format, instead of coding checkmarks under the relevant category (using
+1s), only the applicable category is recorded. Hence, if ability to play
+high intensity is 1 (and the others zero), this format only keep "High"
+in the record. Consequently, for a design with two factors, there is only 
+two columns, and as many lines as there are subjects:
+
+```{r, message=FALSE, warning=FALSE, echo=TRUE, eval=TRUE}
+dataWide
+```
+
+To use this format in ``anofa``, use
+
+```{r, message=FALSE, warning=FALSE, echo=TRUE, eval=TRUE}
+w <- anofa( ~ Intensity * Pitch, dataWide)
+```
+
+(you can verify that the results are identical, whatever the format by
+checking ``summary(w)``).
+
+## Third format: dataCompiled
+
+This format is compiled, in the sense that the frequencies have been
+count for each cell of the design. Hence, we no longer have access
+to the raw data. In this format, there is $3*2 = 6$ lines, one for each
+combination of the factor levels, and $2+1 = 3$ columns, two for the factor
+levels and 1 for the count in that cell (aka the frequency). Thus,
+
+```{r, message=FALSE, warning=FALSE, echo=TRUE, eval=TRUE}
+dataCompiled
+```
+
+To use a compiled format in ``anofa``, use
+
+```{r, message=FALSE, warning=FALSE, echo=TRUE, eval=TRUE}
+w <- anofa(Frequency ~ Intensity * Pitch, dataCompiled )
+```
+
+where ``Frequency`` identifies in which column the counts are stored.
+
+## Fourth format: dataLong
+
+This format may be prefered for linear modelers (but it may rapidly becomes
+_very_ long!). There is always the same three columns: One Id column, one
+column to indicate a factor, and one column to indicate the observed level
+of that factor for that subject. There are $20 \times 2 =40 $ lines in the
+present example (number of subjects times number of factors.)
+
+```{r, message=FALSE, warning=FALSE, echo=TRUE, eval=TRUE}
+dataLong
+```
+
+To analyse such data format within ``anofa()``, use
+
+```{r, message=FALSE, warning=FALSE, echo=TRUE, eval=TRUE}
+w <- anofa( Level ~ Factor | Id, dataLong)
+```
+
+The vertical line symbol indicates that the observations are nested within
+``Id`` (i.e., all the lines with the same Id are actually the same subject).
+
+## Converting between formats
+
+Once entered in an ``anofa()`` structure, it is possible to 
+convert to any format using ``toRaw()``, ``toWide()``, ``toCompiled()``
+and ``toLong()``. For example:
+
+```{r, message=FALSE, warning=FALSE, echo=TRUE, eval=TRUE}
+toCompiled(w)
+```
+
+The compiled format is probably the most compact format, but the 
+raw format is the most explicite format (as we see all the subjects and
+all the _checkmarks_ for each).
+
+The only limitation is with regards to the raw format: It is not possible
+to guess the name of the factors from the names of the columns. By default, 
+``anofa()`` will use uppercase letters to identify the factors.
+
+```{r, message=FALSE, warning=FALSE, echo=TRUE, eval=TRUE}
+w <- anofa( ~ cbind(Low,Medium,High) + cbind(Soft,Hard), dataRaw)
+toCompiled(w)
+```
+
+To overcome this limit, you can manually provide factor names with
+
+```{r, message=FALSE, warning=FALSE, echo=TRUE, eval=TRUE}
+w <- anofa( ~ cbind(Low,Medium,High) + cbind(Soft,Hard), dataRaw, 
+            factors = c("Intensity","Pitch")
+          )
+toCompiled(w)
+```
+
+To know more about analyzing frequency data with ANOFA, refer to @lc23b or to
+[What is an ANOFA?](https://dcousin3.github.io/ANOFA/articles/WhatIsANOFA.html).
+
+
+
+# References
+
+
+
+
+

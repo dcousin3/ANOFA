@@ -1,0 +1,100 @@
+---
+output: github_document
+bibliography: "inst/REFERENCES.bib"
+csl: "inst/apa-6th.csl"
+---
+
+# ANOFA: Analyses of Frequency Data
+
+<!-- badges: start -->
+[![CRAN Status](https://www.r-pkg.org/badges/version/ANOFA)](https://cran.r-project.org/package=ANOFA)
+<!-- badges: end -->
+
+```{r, echo = FALSE, message = FALSE, results = 'hide', warning = FALSE}
+cat("this will be hidden; used for general initializations.\n")
+library(ANOFA)
+options("ANOFA.feedback" = "none") # shut down all information
+```
+
+The library `ANOFA` provides easy-to-use tools to analyze frequency data. 
+It does so using the _Analysis of Frequency datA_ (ANOFA) framework 
+(the full reference @lc23b). With this set of tools, you can examined
+if classification factors are non-equal (_have an effect_) and if their
+interactions (in case you have more than 1 factor) are significant. You
+can also examine simple effects (a.k.a. _expected marginal_ analyses). 
+Finally, you can assess differences based on orthogonal contrasts.
+ANOFA also comes with tools to make a plot of the frequencies along
+with 95% confidence intervals (these intervals are adjusted for pair-
+wise comparisons @cgh21); with tools to compute statistical power given
+some _a priori_ expected frequencies or sample size to reach a certain
+statistical power. In sum, eveything you need to analyse frequencies!
+
+The main function is `anofa()` which provide an omnibus analysis of the 
+frequencies for the factors given. For example, @lm71 explore frequencies
+for attending a certain type of higher education as a function of gender:
+
+```{r, message=FALSE, warning=FALSE, echo=TRUE, eval=TRUE}
+w <- anofa( obsfreq ~ vocation * gender, LightMargolin1971)
+summary(w)
+```
+
+A plot of the frequencies can be obtained easily with 
+
+```{r, message=FALSE, warning=FALSE}
+anofaPlot(w) 
+```
+
+Owing to the interaction, simple effects can be analyzed from the _expected marginal
+frequencies_ with
+
+```{r, message=FALSE, warning=FALSE, echo=TRUE, eval=TRUE}
+e <- emFrequencies(w, ~ gender | vocation )
+summary(e)
+```
+
+Follow-up functions includes contrasts examinations with `contrastFrequencies()'.
+
+Power planning can be performed on frequencies using ``anofaPower2N()`` or
+``anofaN2Power`` if you can determine theoretical frequencies.
+
+Finally, `toRaw()`, `toCompiled()`, `toTabulated()`, `toLong()` and `toWide()` 
+can be used to present the frequency data in other formats.
+
+# Installation
+
+Note that the package is named using UPPERCASE letters whereas the main function is in lowercase letters.
+
+The official **CRAN** version can be installed with 
+
+```{r, echo = TRUE, eval = FALSE}
+install.packages("ANOFA")
+library(ANOFA)
+```
+
+The development version `r packageVersion("ANOFA")` can be accessed through GitHub:
+
+```{r, echo = TRUE, eval = FALSE}
+devtools::install_github("dcousin3/ANOFA")
+library(ANOFA)
+```
+
+The library is loaded with 
+
+```{r, echo = TRUE, eval = FALSE, results = FALSE}
+library(ANOFA)
+```
+
+# For more
+
+As seen, the library `ANOFA` makes it easy to analyze frequency data.
+Its general philosophy is that of ANOFAs.
+
+The complete documentation is available on this 
+[site](https://dcousin3.github.io/ANOFA/).
+
+A general introduction to the `ANOFA` framework underlying this 
+library can be found at *the Quantitative Methods for Psychology* @lc23b.
+
+# References
+
+\insertAllCited{}

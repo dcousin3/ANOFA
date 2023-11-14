@@ -1,0 +1,25 @@
+citHeader("To cite ANOFAs in publications use:")
+
+bibentry(
+  bibtype  = "Article",
+  title    = "Analysis of frequency tables: The ANOFA framework",
+  author   = c("Louis Laurencelle", "Denis Cousineau"),
+  journal  = "The Quantitative Methods for Psychology",
+  year     = "2023",
+  volume   = "19",
+  issue    = "2",
+  pages    = "173--193",
+  url      = "https://dcousin3.github.io/ANOFA/",
+  doi      = "10.20982/tqmp.19.2.p173",
+  textVersion = paste(
+    "Laurencelle, L, & Cousineau, D. (2023).",
+    "Analysis of frequency tables: The ANOFA framework.",
+    "The Quantitative Methods for Psychology, 19(2), 173-193.",
+    "doi: https://doi.org/10.20982/tqmp.19.2.p173"
+  )
+)
+
+citFooter(paste(
+    "We have invested a lot of time and effort in creating ANOFA.",
+    "Please cite it when using it. Academic retribution is citation!")
+)

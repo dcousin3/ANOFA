@@ -1,0 +1,101 @@
+---
+title: "Confidence intervals with frequencies"
+bibliography: "../inst/REFERENCES.bib"
+csl: "../inst/apa-6th.csl"
+output: 
+  rmarkdown::html_vignette
+description: >
+  This vignette describes how to plot confidence intervals with frequencies.
+vignette: >
+  %\VignetteIndexEntry{Confidence intervals with frequencies}
+  %\VignetteEngine{knitr::rmarkdown}
+  \usepackage[utf8]{inputenc}
+---
+
+```{r, echo = FALSE, message = FALSE, results = 'hide', warning = FALSE}
+cat("this will be hidden; use for general initializations.\n")
+library(ANOFA)
+```
+
+Probably the most useful tools for data analysis is a plot with
+suitable error bars [@cgh21]. In this vignette, we show how
+to make confidence intervals for frequencies
+
+## Theory behind Confidence intervals for Frequencies
+
+For frequencies, ANOFA does not
+lend itself to confidence intervals. Hence, we decided to use
+@cp34 pivot technique. This technique returns _stand-alone_
+confidence intervals on a proportion, that is, an interval which can be 
+used to compare an observed proportion to a theoretical value.
+In order to compare an observed proportion to another proportion, it
+is necessary to adjust the wide [see @cgh21]. Further, because we
+want an interval for frequencies, we multiply the proportion by the 
+total number of data $N$.
+
+Herein, we use the @lt96 method which provides an analytical solution
+based on the Fisher's $F$ distribution. It is based on $n$, the observed
+frequency in a given cell, $N$, the total number of observations, and
+$1-\alpha$, the confidence level (typically 95%). It is given by
+
+$$\hat{\pi}_{\text{low}}=\left(
+1+\frac{N-n+1}{n F_{1-\alpha/2}(2n,2(N-n+1)}
+\right)^{-1}
+< {\pi} <
+\left( 
+1+\frac{N-n}{(n+1) F_{\alpha/2}(2(n+1),2(N-x)}\right)^{-1}
+=\hat{\pi}_{\text{high}}$$
+
+This interval wide is then multiply by $N$ with
+$\{n_{\text{low}}, n_{\text{high}} \} = N \, \times\, \{ \hat{\pi}_{\text{low}}, \hat{\pi}_{\text{high}} \}$ 
+so that we obtain an interval on frequencies rather than on probabilities.
+
+Finally, the width of the intervals are adjusted for difference and 
+correlations using:
+
+$$n_{\text{low}}^* =  \sqrt{2} \sqrt{2}(n-n_{\text{low}})+n$$
+
+$$n_{\text{high}}^* =  \sqrt{2} \sqrt{2}(n_{\text{high}}-n)+n$$ 
+
+The lower and upper length are adjusted separately because this interval
+may not be symmetrical (equal length) on both side of the observed frequency $n$.
+
+This is it.
+
+## Complicated?
+
+Well, not really:
+
+```{r, message=FALSE, warning=FALSE, fig.width=5, fig.height=3, fig.cap="**Figure 1**. The frequencies of the Light & Margolin, 1971, data as a function of aspiration for higher education and as a function of gender. Error bars show difference-adjusted 95% confidence intervals."}
+library(ANOFA)
+w <- anofa( obsfreq ~ vocation * gender, LightMargolin1971)
+anofaPlot(w) 
+```
+
+You can select only some factors for plotting, with e.g., 
+
+```{r, message=FALSE, warning=FALSE, fig.width=4, fig.height=3, fig.cap="**Figure 2**. The frequencies of the Light & Margolin, 1971, data as a function of gender. Error bars show difference-adjusted 95% confidence intervals."}
+anofaPlot(w, obsfreq ~ gender) 
+```
+
+Because of the interaction _gender_ $\times$ _vocational aspiration_, 
+the overall difference between boys and girls is
+small. Actually, they differ only in their aspiration to go to the university
+(recall that these are 1960s data...).
+
+As is the case with any ``ggplot2`` figure, you can customize it at will. 
+For example,
+
+```{r, message=FALSE, warning=FALSE, fig.width=4, fig.height=3, fig.cap="**Figure 3**. Same as Figure 2 with some customization."}
+library(ggplot2)
+anofaPlot(w, obsfreq ~ gender) +
+  theme_bw()
+```
+
+
+Here you go.
+
+
+# References
+
+

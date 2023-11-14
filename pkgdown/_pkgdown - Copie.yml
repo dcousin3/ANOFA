@@ -1,0 +1,35 @@
+title: ANOFA
+url: http://dcousin3.github.io/ANOFA
+
+reference:
+  - title: Exported Functions
+    desc: Main functions
+    contents:
+      - '`anofa`'
+      - '`emFrequencies`'
+      - '`contrastFrequencies`'
+      - '`anofaPlot`'
+      - '`anofaES`'
+      - '`anofaPower2N`'
+      - '`anofaN2Power`'
+      - '`GRF`'
+  - title: Subsidiary functions
+    desc: Subsidiary functions
+    contents:
+      - '`toWide`'
+      - '`is.formula`'
+  - title: Datasets
+    desc: Examples of data sets
+    contents:
+      - '`minimalExample`'
+      - '`LandisBarrettGalvin2013`'
+      - '`LightMargolin1971`'
+      - '`Gillet1993`'
+      - '`Detergent`'
+articles:
+- title: Articles
+  navbar: ~
+  contents:
+  - WhatIsANOFA
+  - DataFormatsForFrequencies
+  - ConfidenceIntervals

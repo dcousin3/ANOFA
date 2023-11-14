@@ -190,74 +190,13 @@ See the vignette <code>DataFormatsForFrequencies</code> for more on data format 
 <span class="r-out co"><span class="r-pr">#&gt;</span> 14       PI     PBH     165</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 15       PI      BM      20</span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="co"># Real-data example using a four-way design</span></span></span>
-<span class="r-in"><span><span class="co"># the Detergent data (also found in the vcdExtra package)</span></span></span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="co"># list it as a data.frame (more compact)</span></span></span>
-<span class="r-in"><span><span class="va">dta</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span><span class="va">Detergent</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="va">dta</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    Temperature M_User Preference Water_softness Freq</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1         High    Yes    Brand X           Soft   19</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2          Low    Yes    Brand X           Soft   57</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3         High     No    Brand X           Soft   29</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4          Low     No    Brand X           Soft   63</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5         High    Yes    Brand M           Soft   29</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6          Low    Yes    Brand M           Soft   49</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7         High     No    Brand M           Soft   27</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8          Low     No    Brand M           Soft   53</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9         High    Yes    Brand X         Medium   23</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10         Low    Yes    Brand X         Medium   47</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11        High     No    Brand X         Medium   33</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12         Low     No    Brand X         Medium   66</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13        High    Yes    Brand M         Medium   47</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14         Low    Yes    Brand M         Medium   55</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15        High     No    Brand M         Medium   23</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16         Low     No    Brand M         Medium   50</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 17        High    Yes    Brand X           Hard   24</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 18         Low    Yes    Brand X           Hard   37</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 19        High     No    Brand X           Hard   42</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 20         Low     No    Brand X           Hard   68</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 21        High    Yes    Brand M           Hard   43</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 22         Low    Yes    Brand M           Hard   52</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 23        High     No    Brand M           Hard   30</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 24         Low     No    Brand M           Hard   42</span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="va">w</span> <span class="op">&lt;-</span> <span class="fu">anofa</span><span class="op">(</span> <span class="va">Freq</span> <span class="op">~</span> <span class="va">Temperature</span> <span class="op">*</span> <span class="va">M_User</span> <span class="op">*</span> <span class="va">Preference</span> <span class="op">*</span> <span class="va">Water_softness</span>, <span class="va">dta</span> <span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">w</span> <span class="op">&lt;-</span> <span class="fu">anofa</span><span class="op">(</span> <span class="va">obsfreq</span> <span class="op">~</span> <span class="va">program</span> <span class="op">*</span> <span class="va">provider</span>, <span class="va">LandisBarrettGalvin2013</span> <span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">w</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                                      G df Gcorrected   pvalue</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Total                                        118.62694 23         NA       NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Temperature                                   73.21206  1   73.17576 0.000000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> M_User                                         1.92125  1    1.92029 0.165824</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Preference                                     0.06349  1    0.06346 0.801107</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Water_softness                                 0.50148  2    0.50115 0.778354</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Temperature:M_User                             1.25310  1    1.25000 0.263552</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Temperature:Preference                         4.36160  1    4.35081 0.036991</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Temperature:Water_softness                     6.09910  2    6.08151 0.047799</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> M_User:Preference                             20.58147  1   20.53055 0.000006</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> M_User:Water_softness                          1.07510  2    1.07200 0.585084</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Preference:Water_softness                      0.39530  2    0.39416 0.821126</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Temperature:M_User:Preference                  2.22651  1    2.20356 0.137693</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Temperature:M_User:Water_softness              1.67572  2    1.65615 0.436890</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Temperature:Preference:Water_softness          0.07010  2    0.06928 0.965954</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> M_User:Preference:Water_softness               5.22007  2    5.15908 0.075809</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Temperature:M_User:Preference:Water_softness  -0.02942  2   -0.02809 1.000000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                                 etasq</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Total                                              NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Temperature                                  0.067713</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> M_User                                       0.001902</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Preference                                   0.000063</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Water_softness                               0.000497</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Temperature:M_User                           0.070442</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Temperature:Preference                       0.071513</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Temperature:Water_softness                   0.073370</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> M_User:Preference                            0.021897</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> M_User:Water_softness                        0.003458</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Preference:Water_softness                    0.000952</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Temperature:M_User:Preference                0.093215</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Temperature:M_User:Water_softness            0.078390</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Temperature:Preference:Water_softness        0.077517</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> M_User:Preference:Water_softness             0.028675</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Temperature:M_User:Preference:Water_softness 0.105294</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                       G df Gcorrected  pvalue  etasq</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Total            533.19 14         NA      NA     NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> provider         206.57  4     206.20 0.00000 0.2720</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> program          307.77  2     307.40 0.00000 0.3576</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> provider:program  18.85  8      18.69 0.01662 0.4909</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># You can ask easier outputs</span></span></span>
 <span class="r-in"><span><span class="va">w</span> <span class="op">&lt;-</span> <span class="fu">anofa</span><span class="op">(</span><span class="va">formula</span>, <span class="va">minimalExample</span><span class="op">)</span></span></span>

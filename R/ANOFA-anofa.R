@@ -54,14 +54,7 @@
 #' # Real-data example using a two-factor design with the data in compiled format:
 #' LandisBarrettGalvin2013
 #'
-#' # Real-data example using a four-way design
-#' # the Detergent data (also found in the vcdExtra package)
-#'
-#' # list it as a data.frame (more compact)
-#' dta <- data.frame(Detergent)
-#' dta
-#'
-#' w <- anofa( Freq ~ Temperature * M_User * Preference * Water_softness, dta )
+#' w <- anofa( obsfreq ~ program * provider, LandisBarrettGalvin2013 )
 #' summary(w)
 #'
 #' # You can ask easier outputs

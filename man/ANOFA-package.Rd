@@ -4,7 +4,7 @@
 \name{ANOFA-package}
 \alias{ANOFA}
 \alias{ANOFA-package}
-\title{ANOFA: ANalyses Of Frequency datA}
+\title{ANOFA: Analyses of Frequency Data}
 \description{
 \code{ANOFA} is a library to perform frequency data analyses.
 It is based on the G statistics (first developed by Fisher).
@@ -82,8 +82,8 @@ Useful links:
 
 Other contributors:
 \itemize{
-  \item Laurencelle Louis \email{louis.laurencelle@gmail.com} [contributor]
-  \item Caron Pier-Olivier \email{pocaron19@gmail.com} [contributor]
+  \item Louis Laurencelle \email{louis.laurencelle@gmail.com} [contributor]
+  \item Pier-Olivier Caron \email{pocaron19@gmail.com} [contributor]
 }
 
 }

@@ -81,7 +81,7 @@ install.packages("ANOFA")
 library(ANOFA)
 ```
 
-The development version 0.1.1 can be accessed through GitHub:
+The development version 0.1.2 can be accessed through GitHub:
 
 ``` r
 devtools::install_github("dcousin3/ANOFA")

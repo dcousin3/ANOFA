@@ -3,17 +3,17 @@
 #'
 #' @md
 #'
-#' @description The function ``emFrequencies()`` performs a simple effect analyses 
-#'    of frequencies after an omnibus analysis has been obtained with ``anofa()``
+#' @description The function `emFrequencies()` performs a simple effect analyses 
+#'    of frequencies after an omnibus analysis has been obtained with `anofa()`
 #'    according to the ANOFA framework. See \insertCite{lc23b}{ANOFA} for more.
 #'
 #' @usage emFrequencies(w, formula)
 #'
-#' @param w An ANOFA object obtained from ``anofa()``;
+#' @param w An ANOFA object obtained from `anofa()`;
 #'
 #' @param formula A formula which indicates what simple effect to analyze. 
 #'   only one simple effect formula at a time can be analyzed. The formula
-#'   is given using a vertical bar, e.g., `` ~ factorA | factorB`` to obtain 
+#'   is given using a vertical bar, e.g., " ~ factorA | factorB " to obtain 
 #'   the effect of Factor A within every level of the Factor B.
 #'
 #' @return a model fit of the simple effect. 

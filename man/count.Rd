@@ -37,7 +37,7 @@ needed to make the plot yourself.}
 \item{errorbarParams}{(optional; default list( width =0.5, linewidth=0.75 ) ) A list of
 attributes used to plot the error bars. See superb for more.}
 
-\item{...}{Other directives sent to superb(), typically \code{plotStyle}, \code{errorbarParams}, etc.}
+\item{...}{Other directives sent to superb(), typically 'plotStyle', 'errorbarParams', etc.}
 
 \item{df}{a data frame for initialization of the CI function}
 
@@ -48,7 +48,7 @@ a ggplot2 object of the given frequencies.
 }
 \description{
 The function \code{anofaPlot()} performs a plot of frequencies for designs with up to 4 factors
-according to the \code{anofa} framework. See \insertCite{lc23b}{ANOFA} for more. The plot is
+according to the \code{ANOFA} framework. See \insertCite{lc23b}{ANOFA} for more. The plot is
 realized using the \code{suberb} library; see \insertCite{cgh21}{ANOFA}.
 The functions \code{count()}, \code{init.count()} and \code{CI.count()} are internal functions.
 }

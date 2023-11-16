@@ -7,8 +7,8 @@
 #'
 #' @md
 #'
-#' @description The functions ``toWide()``, ``toLong()``, ``toCompiled()`` 
-#'    ``toRaw()`` and ``toTabular()``
+#' @description The functions `toWide()`, `toLong()`, `toCompiled()` 
+#'    `toRaw()` and `toTabular()`
 #'      converts the data into various formats.
 #' 
 #' @usage toWide(w)

@@ -3,7 +3,7 @@
 #'
 #' @md
 #'
-#' @description The function ``GRF()`` 
+#' @description The function `GRF()` 
 #'      generates random frequencies based on a design, i.e.,
 #'      a list giving the factors and the categories with each factor.
 #'      The data are given in the `compiled` format.

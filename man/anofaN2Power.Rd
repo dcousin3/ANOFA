@@ -22,12 +22,12 @@ anofaN2Power(N, P, f2, alpha)
 }
 \value{
 a model fit to the given frequencies. The model must always be an omnibus model
-(for decomposition of the main model, follow the analysis with \verb{emfrequencies()' or }contrasts()')
+(for decomposition of the main model, follow the analysis with \code{emfrequencies()} or \code{contrasts()})
 }
 \description{
 The function \code{anofaN2Power()} performs an analysis of statistical power
-according to the \code{anofa} framework. See \insertCite{lc23b}{ANOFA} for more.
-\code{anofaPower2N} computes the sample size to reach a given power.
+according to the \code{ANOFA} framework. See \insertCite{lc23b}{ANOFA} for more.
+\code{anofaPower2N()} computes the sample size to reach a given power.
 }
 \examples{
 # 1- The Landis et al. study had tremendous power with 533 participants in 15 cells:

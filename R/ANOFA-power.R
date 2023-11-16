@@ -5,9 +5,9 @@
 #'
 #' @md
 #'
-#' @description The function ``anofaN2Power()`` performs an analysis of statistical power
-#'      according to the ``anofa`` framework. See \insertCite{lc23b}{ANOFA} for more.
-#' ``anofaPower2N`` computes the sample size to reach a given power.      
+#' @description The function `anofaN2Power()` performs an analysis of statistical power
+#'      according to the `ANOFA` framework. See \insertCite{lc23b}{ANOFA} for more.
+#'      `anofaPower2N()` computes the sample size to reach a given power.      
 #'
 #' @usage anofaPower2N(power, P, f2, alpha)
 #'
@@ -25,7 +25,7 @@
 #'
 #'
 #' @return a model fit to the given frequencies. The model must always be an omnibus model
-#'         (for decomposition of the main model, follow the analysis with `emfrequencies()' or `contrasts()')
+#'         (for decomposition of the main model, follow the analysis with `emfrequencies()` or `contrasts()`)
 #'
 #'
 #'

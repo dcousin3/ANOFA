@@ -16,7 +16,7 @@ formula according to the data format.}
 }
 \value{
 a model fit to the given frequencies. The model must always be an omnibus model
-(for decomposition of the main model, follow the analysis with \verb{emfrequencies()' or }contrasts()')
+(for decomposition of the main model, follow the analysis with \code{emfrequencies()} or \code{contrasts()})
 }
 \description{
 The function \code{anofa()} performs an anofa of frequencies for designs with up to 4 factors

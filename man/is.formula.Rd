@@ -30,13 +30,14 @@ sub.formulas(frm, head)
 }
 \value{
 \code{is.formula(frm)}, \code{has.nested.terms(frm)}, and \code{has.cbind.terms(frm)}
-returns TRUE if frm is a formula, contains a \code{|} or a \code{cbind} respectively;
-\code{in.formula(frm, whatsym)} returns TRUE if the symbol \code{whatsym} is somewhere in \code{frm};
+returns TRUE if frm is a formula, contains a '|' or a 'cbind' respectively;
+\code{in.formula(frm, whatsym)} returns TRUE if the symbol \code{whatsym} is somewhere in 'frm';
 \code{sub.formulas(frm, head)} returns a list of all the sub-formulas which contains \code{head}.
 }
 \description{
 The functions \code{is.formula()}, \code{is.one.sided()},
-\verb{has.nested.terms()` }has.cbind.terms()\verb{, }in.formula()\code{and}sub.formulas()``
+\code{has.nested.terms()},
+\code{has.cbind.terms()}, \code{in.formula()} and \code{sub.formulas()}
 performs checks or extract sub-formulas from a given formula.
 }
 \details{

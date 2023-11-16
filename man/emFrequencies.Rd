@@ -11,7 +11,7 @@ emFrequencies(w, formula)
 
 \item{formula}{A formula which indicates what simple effect to analyze.
 only one simple effect formula at a time can be analyzed. The formula
-is given using a vertical bar, e.g., \code{ ~ factorA | factorB} to obtain
+is given using a vertical bar, e.g., " ~ factorA | factorB " to obtain
 the effect of Factor A within every level of the Factor B.}
 }
 \value{

@@ -5,9 +5,9 @@
 #'
 #' @md
 #'
-#' @description The functions ``is.formula()``, ``is.one.sided()``,
-#'      ``has.nested.terms()`
-#'      ``has.cbind.terms()``, ``in.formula()`` and ``sub.formulas()``
+#' @description The functions `is.formula()`, `is.one.sided()`,
+#'      `has.nested.terms()`, 
+#'      `has.cbind.terms()`, `in.formula()` and `sub.formulas()`
 #'      performs checks or extract sub-formulas from a given formula.
 #'
 #' @usage is.formula(frm)
@@ -21,10 +21,10 @@
 #' @param whatsym a symbol to search in the formula;
 #' @param head the beginning of a sub-formula to extract
 #'
-#' @return ``is.formula(frm)``, ``has.nested.terms(frm)``, and ``has.cbind.terms(frm)``
-#'      returns TRUE if frm is a formula, contains a ``|`` or a ``cbind`` respectively;
-#'      ``in.formula(frm, whatsym)`` returns TRUE if the symbol ``whatsym`` is somewhere in `frm`;
-#'      ``sub.formulas(frm, head)`` returns a list of all the sub-formulas which contains ``head``.
+#' @return `is.formula(frm)`, `has.nested.terms(frm)`, and `has.cbind.terms(frm)`
+#'      returns TRUE if frm is a formula, contains a '|' or a 'cbind' respectively;
+#'      `in.formula(frm, whatsym)` returns TRUE if the symbol `whatsym` is somewhere in 'frm';
+#'      `sub.formulas(frm, head)` returns a list of all the sub-formulas which contains `head`.
 #'
 #' @details These formulas are for internal use.
 #'

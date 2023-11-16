@@ -3,11 +3,11 @@
 #'
 #' @md
 #'
-#' @description The function ``contrastFrequencies()`` performs contrasts analyses 
-#'    of frequencies after an omnibus analysis has been obtained with ``anofa()``
+#' @description The function `contrastFrequencies()` performs contrasts analyses 
+#'    of frequencies after an omnibus analysis has been obtained with `anofa()`
 #'    according to the ANOFA framework. See \insertCite{lc23b}{ANOFA} for more.
 #'      
-#' @param w An ANOFA object obtained from ``anofa()`` or ``emFrequencies()``;
+#' @param w An ANOFA object obtained from `anofa()` or `emFrequencies()`;
 #'
 #' @param contrasts A list that gives the weights for the contrasts to analyze. 
 #'   The contrasts within the list can be given names to distinguish them.

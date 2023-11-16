@@ -16,14 +16,14 @@
 #' 
 #' The data supplied to an ANOFA can be in three formats: (i) long format,
 #' (ii) wide format, (iii) compiled format, or (iv) raw format. Check 
-#' the `anofa' commands for more precision (in what follow, we assume 
-#' the compiled format where the frequencies are given in a column name `Freq')
+#' the `anofa` commands for more precision (in what follow, we assume 
+#' the compiled format where the frequencies are given in a column name `Freq`)
 #' 
 #' The main function is
 #' 
 #'    \code{w <- anofa(formula, data)}  
 #' 
-#' where \code{formula} is a formula giving the factors, e.g., `Freq ~ A * B'.
+#' where \code{formula} is a formula giving the factors, e.g., "Freq ~ A * B".
 #'
 #' For more details on the underlying math, see \insertCite{lc23b}{ANOFA}.
 #' 
@@ -77,6 +77,7 @@ ANOFA.env <- new.env(parent = emptyenv())
     # Set the default feedback messages displayed and the number of digits:
     # You can use 'all' to see all the messages, or 'none'.
     options( ANOFA.feedback = c('design','warnings','summary'), ANOFA.digits = 4 )
+
 }
 
 .onDetach <- function(libpath) {

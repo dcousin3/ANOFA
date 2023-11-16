@@ -5,9 +5,9 @@
 #'
 #' @md
 #'
-#' @description The function ``anofaPlot()`` performs a plot of frequencies for designs with up to 4 factors
-#'      according to the ``anofa`` framework. See \insertCite{lc23b}{ANOFA} for more. The plot is 
-#'      realized using the ``suberb`` library; see \insertCite{cgh21}{ANOFA}.
+#' @description The function `anofaPlot()` performs a plot of frequencies for designs with up to 4 factors
+#'      according to the `ANOFA` framework. See \insertCite{lc23b}{ANOFA} for more. The plot is 
+#'      realized using the `suberb` library; see \insertCite{cgh21}{ANOFA}.
 #'   The functions `count()`, `init.count()` and `CI.count()` are internal functions.
 #'
 #' @usage anofaPlot(w, formula, confidenceLevel = .95, showPlotOnly = TRUE, plotStyle = "line", 
@@ -17,11 +17,11 @@
 #' @usage init.count(df)
 #' @usage CI.count(n, gamma =0.95)
 #'
-#' @param w An ANOFA object obtained with ``anofa()``;
+#' @param w An ANOFA object obtained with `anofa()`;
 #'
 #' @param formula (optional) Use formula to plot just specific terms of the omnibus test.
-#'       For example, if your analysis stored in ``w`` has factors A, B and C, then
-#'       ``anofaPlot(w, ~ A * B)`` will only plot the factors A and B.
+#'       For example, if your analysis stored in `w` has factors A, B and C, then
+#'       `anofaPlot(w, ~ A * B)` will only plot the factors A and B.
 #' @param confidenceLevel Provide the confidence level for the confidence intervals.
 #'       (default is 0.95, i.e., 95%).
 #'
@@ -34,7 +34,7 @@
 #' @param errorbarParams (optional; default list( width =0.5, linewidth=0.75 ) ) A list of 
 #'      attributes used to plot the error bars. See superb for more.
 #'
-#' @param ... Other directives sent to superb(), typically ``plotStyle``, ``errorbarParams``, etc.
+#' @param ... Other directives sent to superb(), typically 'plotStyle', 'errorbarParams', etc.
 #'
 #' @param n the count for which a confidence interval is required
 #' @param df a data frame for initialization of the CI function
@@ -185,6 +185,7 @@ anofaPlot <- function(w,
     ##############################################################################
     # quiet superb's information
     opt <- getOption("superb.feedback")
+    on.exit(options(opt))
     options(superb.feedback = 'none')
 
     if (showPlotOnly) { # generate the plot
@@ -208,8 +209,8 @@ anofaPlot <- function(w,
             gamma          = confidenceLevel
         )$summaryStatistics
     }
-    # restore superb's information
-    options(superb.feedback = opt)
+    # restore superb's information: done with on.exit()
+    # options(superb.feedback = opt)
 
     return(res)
 }

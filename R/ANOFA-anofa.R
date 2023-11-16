@@ -3,8 +3,8 @@
 #'
 #' @md
 #'
-#' @description The function ``anofa()`` performs an anofa of frequencies for designs with up to 4 factors
-#'      according to the ``anofa`` framework. See \insertCite{lc23b}{ANOFA} for more.
+#' @description The function `anofa()` performs an anofa of frequencies for designs with up to 4 factors
+#'      according to the `anofa` framework. See \insertCite{lc23b}{ANOFA} for more.
 #'      
 #'
 #' @param data Dataframe in one of wide, long, raw or compiled format;
@@ -15,7 +15,7 @@
 #' @param factors For raw data formats, provide the factor names.
 #'
 #' @return a model fit to the given frequencies. The model must always be an omnibus model
-#'         (for decomposition of the main model, follow the analysis with `emfrequencies()' or `contrasts()')
+#'         (for decomposition of the main model, follow the analysis with `emfrequencies()` or `contrasts()`)
 #'
 #'
 #' @details The data can be given in four formats:

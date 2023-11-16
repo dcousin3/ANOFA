@@ -25,7 +25,7 @@
 #' @md
 #'
 #' @description
-#' ``explain()`` provides a human-readable, exhaustive, description of
+#' `explain()` provides a human-readable, exhaustive, description of
 #' the results. It also provides references to the key results.
 #' 
 #' @usage explain(object, ...)
@@ -49,8 +49,8 @@ explain.default <- function(object, ...) { print(object) }
 #' @md
 #'
 #' @description
-#' ``summarize()`` provides a human-readable output of an ANOFAobject. it is 
-#' synonym of ``summary()`` (but as actions are verbs, I used a verb).
+#' `summarize()` provides a human-readable output of an ANOFAobject. it is 
+#' synonym of `summary()` (but as actions are verbs, I used a verb).
 #' 
 #' @param object   an object to summarize
 #' @param ...      ignored

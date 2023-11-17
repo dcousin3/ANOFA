@@ -82,6 +82,7 @@
 #' anofaPlot(w, plotStyle = "bar", errorbarParams = list( width =0.1, linewidth=0.1 ) )
 #' 
 #' # An example with 4 factors:
+#' \dontrun{
 #' dta <- data.frame(Detergent)
 #' dta
 #'
@@ -89,6 +90,7 @@
 #' anofaPlot(w)
 #' anofaPlot(w, factorOrder = c("M_User","Preference","Water_softness","Temperature")) 
 #' 
+#'
 #' # Illustrating the main effect of Temperature (not interacting with other factors)
 #' # and the interaction Preference * Previously used M brand
 #' # (Left and right panels of Figure 4 of the main article)
@@ -99,7 +101,7 @@
 #' library(ggplot2)
 #' anofaPlot(w, ~ Temperature) + ylim(200,800) + theme_classic()
 #' anofaPlot(w, ~ Preference * M_User) + ylim(100,400) + theme_classic()
-#'
+#' }
 #' # etc. Any ggplot2 directive can be added to customize the plot to your liking.
 #' # See the vignette `Example2`.
 #'

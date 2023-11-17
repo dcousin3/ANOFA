@@ -25,7 +25,7 @@ cold). It is therefore a 3 × 2 × 2 × 2 design with 24 cells."><!-- mathjax --
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ANOFA</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.1.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.1.3</span>
       </span>
     </div>
 
@@ -110,24 +110,19 @@ cold). It is therefore a 3 × 2 × 2 × 2 design with 24 cells.</p>
 <span class="r-in"><span><span class="va">dta</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span><span class="va">Detergent</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># run the anofa analysis</span></span></span>
+<span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
 <span class="r-in"><span><span class="va">w</span> <span class="op">&lt;-</span> <span class="fu"><a href="anofa.html">anofa</a></span><span class="op">(</span> <span class="va">Freq</span> <span class="op">~</span>  <span class="va">Temperature</span> <span class="op">*</span> <span class="va">M_User</span> <span class="op">*</span> <span class="va">Preference</span> <span class="op">*</span> <span class="va">Water_softness</span>, <span class="va">dta</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># make a plot with all the factors</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="count.html">anofaPlot</a></span><span class="op">(</span><span class="va">w</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> superb::FYI: Running initializer init.count</span>
-<span class="r-plt img"><img src="Detergent-1.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># ... or with just a few factors</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="count.html">anofaPlot</a></span><span class="op">(</span><span class="va">w</span>, <span class="op">~</span> <span class="va">Preference</span> <span class="op">*</span> <span class="va">M_User</span> <span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> superb::FYI: Running initializer init.count</span>
-<span class="r-plt img"><img src="Detergent-2.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span><span class="fu"><a href="count.html">anofaPlot</a></span><span class="op">(</span><span class="va">w</span>, <span class="op">~</span> <span class="va">Temperature</span> <span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> superb::FYI: Running initializer init.count</span>
-<span class="r-plt img"><img src="Detergent-3.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># extract simple effects</span></span></span>
 <span class="r-in"><span><span class="va">e</span> <span class="op">&lt;-</span> <span class="fu"><a href="emFrequencies.html">emFrequencies</a></span><span class="op">(</span><span class="va">w</span>, <span class="op">~</span> <span class="va">M_User</span> <span class="op">|</span> <span class="va">Preference</span> <span class="op">)</span> </span></span>
-<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="op">}</span></span></span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>

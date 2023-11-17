@@ -14,9 +14,9 @@
 #'
 #' @param factors For raw data formats, provide the factor names.
 #'
-#' @return a model fit to the given frequencies. The model must always be an omnibus model
-#'         (for decomposition of the main model, follow the analysis with `emFrequencies()` 
-#'         or `contrastFrequencies()`)
+#' @return a model fit to the given frequencies. The model must always be an omnibus model (for 
+#'    decomposition of the main model, follow the analysis with `emFrequencies()` or `contrastFrequencies()`)
+#'         
 #'
 #' @details The data can be given in four formats:
 #' * `wide`: In the wide format, there is one line for each participant, and

@@ -15,9 +15,8 @@ formula according to the data format.}
 \item{factors}{For raw data formats, provide the factor names.}
 }
 \value{
-a model fit to the given frequencies. The model must always be an omnibus model
-(for decomposition of the main model, follow the analysis with \code{emFrequencies()}
-or \code{contrastFrequencies()})
+a model fit to the given frequencies. The model must always be an omnibus model (for
+decomposition of the main model, follow the analysis with \code{emFrequencies()} or \code{contrastFrequencies()})
 }
 \description{
 The function \code{anofa()} performs an anofa of frequencies for designs with up to 4 factors

@@ -30,6 +30,7 @@
 #' dta <- data.frame(Detergent)
 #' 
 #' # run the anofa analysis
+#' \dontrun{
 #' w <- anofa( Freq ~  Temperature * M_User * Preference * Water_softness, dta)
 #' 
 #' # make a plot with all the factors
@@ -41,6 +42,6 @@
 #' 
 #' # extract simple effects
 #' e <- emFrequencies(w, ~ M_User | Preference ) 
-#' 
+#' }
 #' 
 "Detergent"

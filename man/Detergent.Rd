@@ -29,6 +29,7 @@ cold). It is therefore a 3 × 2 × 2 × 2 design with 24 cells.
 dta <- data.frame(Detergent)
 
 # run the anofa analysis
+\dontrun{
 w <- anofa( Freq ~  Temperature * M_User * Preference * Water_softness, dta)
 
 # make a plot with all the factors
@@ -40,7 +41,7 @@ anofaPlot(w, ~ Temperature )
 
 # extract simple effects
 e <- emFrequencies(w, ~ M_User | Preference ) 
-
+}
 
 }
 \references{

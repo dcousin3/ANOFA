@@ -36,8 +36,10 @@ anofaES <- function( props ){
     ## STEP 1: VALIDATION OF INPUT
     ##############################################################################
     # 1.1 proportions must totalize 1.00
-    if (sum(props)!=1) 
-        stop("ANOFA::error(41): The proportions do not totalize 1.00 (100%). Exiting...")
+    if (round(sum(props),4)!=1) {
+        warning("ANOFA::error(41): The proportions do not totalize 1.00 (100%). Standardizing...")
+        props <- props / sum(props)
+    }
 
     ##############################################################################
     ## STEP 2: MAKES THE COMPUTATION

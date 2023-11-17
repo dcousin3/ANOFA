@@ -6,7 +6,7 @@
 #' @md
 #'
 #' @description The function `anofaN2Power()` performs an analysis of statistical power
-#'      according to the `ANOFA` framework. See \insertCite{lc23b}{ANOFA} for more.
+#'      according to the `ANOFA` framework. See \insertCite{lc23b;textual}{ANOFA} for more.
 #'      `anofaPower2N()` computes the sample size to reach a given power.      
 #'
 #' @usage anofaPower2N(power, P, f2, alpha)

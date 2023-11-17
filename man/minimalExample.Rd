@@ -15,7 +15,7 @@ minimalExample
 }
 \description{
 The data in compiled format are analyzed with an
-Analysis of Frequency Data method (described in @lc23b).
+Analysis of Frequency Data method (described in \insertCite{lc23b}{ANOFA}.
 }
 \examples{
 library(ANOFA)

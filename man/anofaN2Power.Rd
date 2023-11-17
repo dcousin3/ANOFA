@@ -26,7 +26,7 @@ a model fit to the given frequencies. The model must always be an omnibus model
 }
 \description{
 The function \code{anofaN2Power()} performs an analysis of statistical power
-according to the \code{ANOFA} framework. See \insertCite{lc23b}{ANOFA} for more.
+according to the \code{ANOFA} framework. See \insertCite{lc23b;textual}{ANOFA} for more.
 \code{anofaPower2N()} computes the sample size to reach a given power.
 }
 \examples{

@@ -14,7 +14,7 @@ The predicted effect size from a population with the given proportions.
 }
 \description{
 The function \code{anofaES()} compute effect size from observed frequencies
-according to the ANOFA framework. See \insertCite{lc23b}{ANOFA} for more.
+according to the ANOFA framework. See \insertCite{lc23b;textual}{ANOFA} for more.
 }
 \details{
 The effect size is given as an eta-square.

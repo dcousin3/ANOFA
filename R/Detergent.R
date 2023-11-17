@@ -1,6 +1,6 @@
 #' Detergent data
 #'
-#' The data, taken from \insertCite{rs63}{ANOFA}, is a dataset examining
+#' The data, taken from \insertCite{rs63;textual}{ANOFA}, is a dataset examining
 #' the distribution of a large sample of customers, classified over
 #' four factors:
 #' `Softness of water used` (3 levels: soft, medium or hard),

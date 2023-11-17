@@ -4,7 +4,7 @@
 #' @md
 #'
 #' @description The function `anofa()` performs an anofa of frequencies for designs with up to 4 factors
-#'      according to the `anofa` framework. See \insertCite{lc23b}{ANOFA} for more.
+#'      according to the `anofa` framework. See \insertCite{lc23b;textual}{ANOFA} for more.
 #'      
 #'
 #' @param data Dataframe in one of wide, long, raw or compiled format;
@@ -33,7 +33,7 @@
 #'
 #'
 #' @references
-#' \insertAllCited{}
+#' \insertAllCited
 #'
 #' @examples
 #' # Basic example using a single-factor design with the data in compiled format. 

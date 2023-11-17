@@ -20,7 +20,7 @@ decomposition of the main model, follow the analysis with \code{emFrequencies()}
 }
 \description{
 The function \code{anofa()} performs an anofa of frequencies for designs with up to 4 factors
-according to the \code{anofa} framework. See \insertCite{lc23b}{ANOFA} for more.
+according to the \code{anofa} framework. See \insertCite{lc23b;textual}{ANOFA} for more.
 }
 \details{
 The data can be given in four formats:
@@ -67,5 +67,5 @@ explain(w)   # human-readable ouptut
 
 }
 \references{
-\insertAllCited{}
+\insertAllCited
 }

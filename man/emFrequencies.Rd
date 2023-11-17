@@ -20,7 +20,7 @@ a model fit of the simple effect.
 \description{
 The function \code{emFrequencies()} performs a simple effect analyses
 of frequencies after an omnibus analysis has been obtained with \code{anofa()}
-according to the ANOFA framework. See \insertCite{lc23b}{ANOFA} for more.
+according to the ANOFA framework. See \insertCite{lc23b;textual}{ANOFA} for more.
 }
 \details{
 emFrequencies computes expected marginal frequencies and

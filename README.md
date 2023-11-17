@@ -9,17 +9,17 @@ Status](https://www.r-pkg.org/badges/version/ANOFA)](https://cran.r-project.org/
 
 The library `ANOFA` provides easy-to-use tools to analyze frequency
 data. It does so using the *Analysis of Frequency datA* (ANOFA)
-framework (the full reference Laurencelle & Cousineau (2023)). With this
+framework (the full reference Laurencelle & Cousineau, 2023). With this
 set of tools, you can examined if classification factors are non-equal
 (*have an effect*) and if their interactions (in case you have more than
 1 factor) are significant. You can also examine simple effects (a.k.a.
 *expected marginal* analyses). Finally, you can assess differences based
 on orthogonal contrasts. ANOFA also comes with tools to make a plot of
 the frequencies along with 95% confidence intervals (these intervals are
-adjusted for pair- wise comparisons Cousineau, Goulet, & Harding
-(2021)); with tools to compute statistical power given some *a priori*
-expected frequencies or sample size to reach a certain statistical
-power. In sum, eveything you need to analyse frequencies!
+adjusted for pair- wise comparisons Cousineau, Goulet, & Harding, 2021);
+with tools to compute statistical power given some *a priori* expected
+frequencies or sample size to reach a certain statistical power. In sum,
+eveything you need to analyse frequencies!
 
 The main function is `anofa()` which provide an omnibus analysis of the
 frequencies for the factors given. For example, Light & Margolin (1971)

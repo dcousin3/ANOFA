@@ -20,7 +20,7 @@ a model fit of the constrasts.
 \description{
 The function \code{contrastFrequencies()} performs contrasts analyses
 of frequencies after an omnibus analysis has been obtained with \code{anofa()}
-according to the ANOFA framework. See \insertCite{lc23b}{ANOFA} for more.
+according to the ANOFA framework. See \insertCite{lc23b;textual}{ANOFA} for more.
 }
 \details{
 contrastFrequencies computes the Gs for the contrasts,

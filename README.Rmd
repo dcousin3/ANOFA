@@ -18,14 +18,14 @@ options("ANOFA.feedback" = "none") # shut down all information
 
 The library `ANOFA` provides easy-to-use tools to analyze frequency data. 
 It does so using the _Analysis of Frequency datA_ (ANOFA) framework 
-(the full reference @lc23b). With this set of tools, you can examined
+[the full reference @lc23b]. With this set of tools, you can examined
 if classification factors are non-equal (_have an effect_) and if their
 interactions (in case you have more than 1 factor) are significant. You
 can also examine simple effects (a.k.a. _expected marginal_ analyses). 
 Finally, you can assess differences based on orthogonal contrasts.
 ANOFA also comes with tools to make a plot of the frequencies along
-with 95% confidence intervals (these intervals are adjusted for pair-
-wise comparisons @cgh21); with tools to compute statistical power given
+with 95% confidence intervals [these intervals are adjusted for pair-
+wise comparisons @cgh21]; with tools to compute statistical power given
 some _a priori_ expected frequencies or sample size to reach a certain
 statistical power. In sum, eveything you need to analyse frequencies!
 

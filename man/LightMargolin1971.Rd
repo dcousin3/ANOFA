@@ -14,7 +14,7 @@ An object of class data.frame.
 LightMargolin1971
 }
 \description{
-The data, taken from \insertCite{lm71}{ANOFA}, is an example where the
+The data, taken from \insertCite{lm71;textual}{ANOFA}, is an example where the
 educational aspiration of a large sample of N =
 617 adolescents. The participants are classified by their
 gender (2 levels) and by their educational aspiration (

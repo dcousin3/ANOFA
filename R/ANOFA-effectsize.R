@@ -4,7 +4,7 @@
 #' @md
 #'
 #' @description The function `anofaES()` compute effect size from observed frequencies
-#'      according to the ANOFA framework. See \insertCite{lc23b}{ANOFA} for more.
+#'      according to the ANOFA framework. See \insertCite{lc23b;textual}{ANOFA} for more.
 #'
 #' @usage anofaES( props )
 #'

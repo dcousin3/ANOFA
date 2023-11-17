@@ -14,7 +14,7 @@ An object of class data.frame.
 LandisBarrettGalvin2013
 }
 \description{
-The data, taken from \insertCite{lbg13}{ANOFA}, is a dataset where the
+The data, taken from \insertCite{lbg13;textual}{ANOFA}, is a dataset where the
 participants (n = 553) are classified according to two factors,
 first, how  modalities of care in a family
 medicine residency program were given. The possible cases were \verb{Collocated Behavioral Health service} (CBH), a \verb{Primary-Care  Behavioral Health service} (PBH) and a \verb{Blended Model} (BM).

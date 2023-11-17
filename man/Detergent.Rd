@@ -14,7 +14,7 @@ An object of class list.
 Detergent
 }
 \description{
-The data, taken from \insertCite{rs63}{ANOFA}, is a dataset examining
+The data, taken from \insertCite{rs63;textual}{ANOFA}, is a dataset examining
 the distribution of a large sample of customers, classified over
 four factors:
 \verb{Softness of water used} (3 levels: soft, medium or hard),

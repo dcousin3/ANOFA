@@ -47,9 +47,10 @@ attributes used to plot the error bars. See superb for more.}
 a ggplot2 object of the given frequencies.
 }
 \description{
-The function \code{anofaPlot()} performs a plot of frequencies for designs with up to 4 factors
-according to the \code{ANOFA} framework. See \insertCite{lc23b}{ANOFA} for more. The plot is
-realized using the \code{suberb} library; see \insertCite{cgh21}{ANOFA}.
+The function \code{anofaPlot()} performs a plot of frequencies for designs
+with up to 4 factors according to the
+\code{ANOFA} framework. See \insertCite{lc23b;textual}{ANOFA} for more. The plot is
+realized using the \code{suberb} library; see \insertCite{cgh21;textual}{ANOFA}.
 The functions \code{count()}, \code{init.count()} and \code{CI.count()} are internal functions.
 }
 \details{
@@ -57,10 +58,11 @@ The plot shows the frequencies (the count of cases) on the vertical axis as a
 function of the factors (the first on the horizontal axis, the second if any in a legend;
 and if a third or even a fourth factors are present, as distinct rows and columns).
 It also shows 95\% confidence intervals of the frequency, adjusted for between-cells
-comparisons. The confidence intervals are based on the Clopper and Pearson method (@cp34)
-using the Leemis and Trivedi analytic formula (@lt96). This "stand-alone" confidence
+comparisons. The confidence intervals are based on the Clopper and Pearson method
+\insertCite{cp34}{ANOFA} using the Leemis and Trivedi
+analytic formula \insertCite{lt96}{ANOFA}. This "stand-alone" confidence
 interval is then adjusted for between-cell comparisons using the superb framework
-(@cgh21).
+\insertCite{cgh21}{ANOFA}.
 
 See the vignette \code{DataFormatsForFrequencies} for more on data format and how to write their
 formula. See the vignette \code{ConfidenceInterval} for details on the adjustment and its purpose.

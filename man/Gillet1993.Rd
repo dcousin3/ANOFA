@@ -11,7 +11,7 @@ An object of class list.
 Gillet1993
 }
 \description{
-The data, taken from \insertCite{g93}{ANOFA}, is a dataset examining
+The data, taken from \insertCite{g93;textual}{ANOFA}, is a dataset examining
 the distribution of apple tree to produce new branches from grafts. The study has
 a sample of 713 trees subdivided into three factors:
 \code{species} (2 levels: Jonagold or Cox);

@@ -25,7 +25,7 @@
 #' 
 #' where \code{formula} is a formula giving the factors, e.g., "Freq ~ A * B".
 #'
-#' For more details on the underlying math, see \insertCite{lc23b}{ANOFA}.
+#' For more details on the underlying math, see \insertCite{lc23b;textual}{ANOFA}.
 #' 
 #' An omnibus analysis may be followed by simple effects or contrasts analyses:
 #'   \code{emFrequencies(w, formula)}

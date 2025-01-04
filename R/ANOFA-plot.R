@@ -11,7 +11,8 @@
 #'      realized using the `suberb` library; see \insertCite{cgh21;textual}{ANOFA}.
 #'      The functions `count()`, `init.count()` and `CI.count()` are internal functions.
 #'
-#' @usage anofaPlot(w, formula, confidenceLevel = .95, showPlotOnly = TRUE, plotStyle = "line", 
+#' @usage anofaPlot(w, formula = NULL, confidenceLevel = .95, showPlotOnly = TRUE, 
+#'     plotLayout = "line", plotStyle = NULL, 
 #'     errorbarParams  = list( width =0.5, linewidth=0.75 ), ...)
 #'
 #' @usage count(n)
@@ -26,8 +27,10 @@
 #' @param confidenceLevel Provide the confidence level for the confidence intervals.
 #'       (default is 0.95, i.e., 95%).
 #'
-#' @param plotStyle (optional; default "line") How to plot the frequencies. See superb for other layouts
-#'      (e.g., "line")
+#' @param plotLayout (optional; default "line") How to plot the frequencies. See superb for other layouts
+#'      (e.g., "line"). plotLayout supersedes plotStyle.
+#'
+#' @param plotStyle Deprecated. Use plotLayout.
 #'
 #' @param showPlotOnly (optional, default True) shows only the plot or else shows the numbers
 #'      needed to make the plot yourself.
@@ -78,10 +81,10 @@
 #' anofaPlot(w, ~ program * provider)
 #' 
 #' # Change the style for a plot with bars instead of lines
-#' anofaPlot(w, plotStyle = "bar")
+#' anofaPlot(w, plotLayout = "bar")
 #' 
 #' # Changing the error bar style
-#' anofaPlot(w, plotStyle = "bar", errorbarParams = list( width =0.1, linewidth=0.1 ) )
+#' anofaPlot(w, plotLayout = "bar", errorbarParams = list( width =0.1, linewidth=0.1 ) )
 #' 
 #' # An example with 4 factors:
 #' \dontrun{
@@ -156,7 +159,8 @@ anofaPlot <- function(w,
                 formula         = NULL,
                 confidenceLevel = 0.95,
                 showPlotOnly    = TRUE,
-                plotStyle       = "line",                             # lines by default
+                plotLayout      = "line",          # lines by default
+                plotStyle       = NULL,            # deprecated; use plotLayout
                 errorbarParams  = list( width =0.5, linewidth=0.75 ), # thicker error bars
                 ...  # will be transmitted to superb as is
 ){
@@ -200,6 +204,7 @@ anofaPlot <- function(w,
             errorbar       = "CI",          # its precision define above
             gamma          = confidenceLevel,
             # the following is for the look of the plot
+            plotLayout     = plotLayout,
             plotStyle      = plotStyle,
             errorbarParams = errorbarParams,   
             ...## passed as is to superb

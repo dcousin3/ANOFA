@@ -85,7 +85,7 @@ test_that("Testing paper's examples (3/4)", {
     expect_equal( res$results[3,4],   0.1589, tolerance = 0.0001)
 
     # third example of the paper 
-# Removed because Prof Ripley is not happy
+# Removed because too slow
 #    dta <- data.frame(Detergent)
 #    res <- anofa( Freq ~ Temperature * M_User * Preference * Water_softness, dta )
 #    expect_equal( res$results[1,1], 118.6269, tolerance = 0.0001)

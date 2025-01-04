@@ -74,7 +74,7 @@ test_that("TESTS of emFrequencies function (2/3)", {
     expect_equal(w$results[2,1]+w$results[6,1], sum(e$results[,1]), tol = 0.0001)
 
     #### Detergent RIES ET SMITH, 1963 ####
-# Removed because Prof Ripley is not happy
+# Removed because too slow
 #    dta <- data.frame(Detergent)
 #    w <- anofa( Freq ~  Temperature * M_User * Preference * Water_softness, dta)
 #    expect_equal(w$results[5,1],  0.5015, tolerance = 0.0001)

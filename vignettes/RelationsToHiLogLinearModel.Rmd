@@ -1,0 +1,98 @@
+---
+title: "Relations to HiLogLinear"
+bibliography: "../inst/REFERENCES.bib"
+csl: "../inst/apa-6th.csl"
+output: 
+  rmarkdown::html_vignette
+description: >
+  This vignette describes the differences between ANOFA and Hierchichal Log linear models.
+vignette: >
+  %\VignetteIndexEntry{ANOFA vs HiLogLinear}
+  %\VignetteEngine{knitr::rmarkdown}
+  \usepackage[utf8]{inputenc}
+---
+
+```{r, echo = FALSE, message = FALSE, results = 'hide', warning = FALSE}
+cat("this is hidden; general initializations.\n")
+library(ANOFA)
+```
+
+# ANOFA vs. hierchical log-linear modeling
+
+Some have noticed similarities between ANOFA and hierchical log-linear model. Indeed, the starting point of the two techniques is the same, the use of a G statistics which computes the log-likelihood ratio of two competing models, one
+being a restricted version of the other [@lc23b].
+
+@s15 did an excellent overview of frequency analyses. He ends by citing
+@d83: " It  is not  difficult to argue that log-linear models will eventually
+supersede  the use of Pearson's chi-square in the future because of their similarity to analysis of variance (ANOVA) procedures and their
+extension  to  higher order  tables."
+
+However, a major chiasma happened in 1940, and from that moment on, 
+hierchical linear models took an unexpected direction apart from ANOFA.
+
+# What happened in 1940?
+
+@ds40 published an article related to U.S. census. Herein, they noted, 
+working with a classification table having more than two factors, that
+the expected cell frequencies computed using products of estimators
+(MLE) did not totalize the number of observations. As it turns out, this
+happens only when there are three or more classification dimensions.
+
+As a solution, they proposed to generate the expected marginals using 
+an iterative algorithm (SPSS calls it the _iterative proportional-
+fitting algorithm_). @f70a described in more details the said algorithm, 
+showing that it always converges, and does so in just a few iterations, 
+making it a very apt algorithm. @f70b also claimed that the marginals
+so estimated were suitable for log-linear model. Previous works showed
+that estimates obtained in that way were maximizing the likelihood of
+a model with fixed marginal totals (a _product-multinomial model_
+which could be schematized as a multinomial with sub-multinomial
+layers model ) 
+[@f07, p. 168], which is not the adequate model in a totally 
+free multidimensional classification sampling.
+
+This _iterative proportional-fitting algorithm_ became the norm and is
+implemented in most software performing log-linear model fitting.
+Fienberg was an influential advocate of this algorithm (see his 1980
+books re-edited 2007; @f07, chapter 3).
+
+# What are the pros and cons of using the _iterative proportional-fitting model_?
+
+### Pros:
+
+* When the predicted cells are added, they sum up to the observed frequencies;
+
+* The G statistics is never negative
+
+### Cons:
+
+* The expected marginal frequencies computed with this algorithm are *not* MLE estimators;
+
+* Consequently, the @w38 theorem, which says that asymptotically, the G 
+statistic (a likelihood ratio of MLE's) follows a chi-square distribution, 
+is no longer applicable to hierarchical log-linear model,
+
+* Also, the w76 correction to the chi-square distribution for small samples 
+is likewise no longer valid in hierarchical log-linear model;
+
+* @np33 showed that tests based on the likelihood ratio of MLE's
+result in the most powerful statistical tests of hypothesis;
+
+* The G statistics are no longer additive, not totalizing $G_{\rm{total}}$
+anymore,
+
+* Consequently, it is no longer possible to decompose the total G statistics
+into main effects and interactions --or-- into simple effects --or-- into
+orthogonal contrasts...
+
+In our opinion, the list of disadvantages of using the iterative algorithm 
+*by far* exceed the advantages it offers. Wilks and Williams' theorems 
+are the important foundations of ANOFA which makes this technique sound, 
+and Neyman and Pearson's theorem, that ANOFA is statistically the 
+most powerful test.
+
+
+
+
+# References
+

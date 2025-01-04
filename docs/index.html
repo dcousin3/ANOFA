@@ -46,7 +46,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">ANOFA</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.1.3</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.2.1</span>
       </span>
     </div>
 
@@ -70,6 +70,9 @@
     </li>
     <li>
       <a href="articles/ConfidenceIntervals.html">Confidence intervals with frequencies</a>
+    </li>
+    <li>
+      <a href="articles/RelationsToHiLogLinearModel.html">Relations to HiLogLinear</a>
     </li>
   </ul>
 </li>
@@ -127,8 +130,8 @@
 <span id="cb5-5"><a href="#cb5-5" tabindex="-1"></a><span class="do">## gender | Gymnasium   3.22145  1   3.218840 0.5219 0.057299</span></span>
 <span id="cb5-6"><a href="#cb5-6" tabindex="-1"></a><span class="do">## gender | University 42.34782  1  42.313530 0.0000 0.289364</span></span></code></pre></div>
 <p>Follow-up functions includes contrasts examinations with `contrastFrequencies()’.</p>
-<p>Power planning can be performed on frequencies using <code><a href="reference/anofaN2Power.html">anofaPower2N()</a></code> or <code>anofaN2Power</code> if you can determine theoretical frequencies.</p>
-<p>Finally, <code><a href="reference/conversion.html">toRaw()</a></code>, <code><a href="reference/conversion.html">toCompiled()</a></code>, <code>toTabulated()</code>, <code><a href="reference/conversion.html">toLong()</a></code> and <code><a href="reference/conversion.html">toWide()</a></code> can be used to present the frequency data in other formats.</p>
+<p>Power planning can be performed on frequencies using <code><a href="reference/anofaN2Power.html">anofaPower2N()</a></code> or <code><a href="reference/anofaN2Power.html">anofaN2Power()</a></code> if you can determine theoretical frequencies.</p>
+<p>Finally, <code><a href="reference/conversion.html">toRaw()</a></code>, <code><a href="reference/conversion.html">toCompiled()</a></code>, <code><a href="reference/conversion.html">toTabular()</a></code>, <code><a href="reference/conversion.html">toLong()</a></code> and <code><a href="reference/conversion.html">toWide()</a></code> can be used to present the frequency data in other formats.</p>
 </div>
 <div class="section level1">
 <h1 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
@@ -138,7 +141,7 @@
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"ANOFA"</span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dcousin3.github.io/ANOFA/" class="external-link">ANOFA</a></span><span class="op">)</span></span></code></pre></div>
-<p>The development version 0.1.3 can be accessed through GitHub:</p>
+<p>The development version 0.2.1 can be accessed through GitHub:</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"dcousin3/ANOFA"</span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dcousin3.github.io/ANOFA/" class="external-link">ANOFA</a></span><span class="op">)</span></span></code></pre></div>
@@ -156,7 +159,7 @@
 <div class="section level1">
 <h1 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a>
 </h1>
-<div id="refs" class="references csl-bib-body hanging-indent" line-spacing="2">
+<div id="refs" class="references csl-bib-body hanging-indent" entry-spacing="0" line-spacing="2">
 <div id="ref-cgh21" class="csl-entry">
 Cousineau, D., Goulet, M.-A., &amp; Harding, B. (2021). Summary plots with adjusted error bars: The superb framework with an implementation in R. <em>Advances in Methods and Practices in Psychological Science</em>, <em>4</em>, 1–18. <a href="https://doi.org/10.1177/25152459211035109" class="external-link uri">https://doi.org/10.1177/25152459211035109</a>
 </div>

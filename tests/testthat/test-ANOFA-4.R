@@ -32,8 +32,6 @@ test_that("TESTS of contrastFrequencies function(1/2)", {
     expect_error( contrastFrequencies(e, list(c1=c(1,1,-2)/1, c2=c(1,-1,0), c3=c(0,1,01))) ) 
     # cross product does not sum to 1 (error 35)
     expect_error( contrastFrequencies(e, list(c1=c(1,1,-2)/2, c2=c(1,0,-1))) ) 
-    # amplitude not 1 (error 36)
-    expect_error( contrastFrequencies(e, list(c1=c(1,1,-2)/1, c2=c(1,-1,0))) ) 
 
 })
 
@@ -112,7 +110,7 @@ test_that("TESTS of contrastFrequencies function (2/2)", {
 
 
     #### Detergent RIES ET SMITH, 1963 ####
-# Removed because Prof Ripley is not happy
+# Removed because too slow
 #    dta <- data.frame(Detergent)
 #    R <- anofa( Freq ~  Temperature * M_User * Preference * Water_softness, dta)
 #    e <- emFrequencies(R, ~ Water_softness | Temperature ) 

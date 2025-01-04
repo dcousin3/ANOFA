@@ -107,12 +107,15 @@ contrastFrequencies <- function(
         sums <-append(sums, round(sum(contrasts[[i]]*contrasts[[j]]) ),8) } }
     if (!(all(sums == 0)))
         stop("ANOFA::error(35): Some of the cross-products of contrasts do not totalize 0. Exiting...")
-    # 1.3: Are the contrasts legitimate (c) all oppositions sum to 1
-    if (!(all(round(unlist(lapply(contrasts, \(x) sum(abs(x)))),8)==2)))
-        stop("ANOFA::error(36): Some of the contrasts' weigth does not equal 1 (for the positive weights) or -1 (for the negative weights). Exiting...")
+
     # 1.4: is there an acceptable number of contrasts
     if (length(contrasts) > relevantlevels-1)
         stop("ANOFA::error(37): There are more contrasts defined than degrees of freedom. Exiting...")
+    # 1.5: Normalize the contrasts so that they sum to 1
+    for (i in names(contrasts)) {
+        contrasts[[i]] <- contrasts[[i]] / sum(abs(contrasts[[i]])) * 2
+    }
+
     
     
     ##############################################################################

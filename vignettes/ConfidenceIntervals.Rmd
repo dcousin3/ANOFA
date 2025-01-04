@@ -46,7 +46,7 @@ $$\hat{\pi}_{\text{low}}=\left(
 1+\frac{N-n}{(n+1) F_{\alpha/2}(2(n+1),2(N-x)}\right)^{-1}
 =\hat{\pi}_{\text{high}}$$
 
-This interval wide is then multiply by $N$ with
+This interval width is then multiply by $N$ with
 $\{n_{\text{low}}, n_{\text{high}} \} = N \, \times\, \{ \hat{\pi}_{\text{low}}, \hat{\pi}_{\text{high}} \}$ 
 so that we obtain an interval on frequencies rather than on probabilities.
 
@@ -58,7 +58,7 @@ $$n_{\text{low}}^* =  \sqrt{2} \sqrt{2}(n-n_{\text{low}})+n$$
 $$n_{\text{high}}^* =  \sqrt{2} \sqrt{2}(n_{\text{high}}-n)+n$$ 
 
 The lower and upper length are adjusted separately because this interval
-may not be symmetrical (equal length) on both side of the observed frequency $n$.
+may not be symmetrical (equal length) on both sides of the observed frequency $n$.
 
 This is it.
 

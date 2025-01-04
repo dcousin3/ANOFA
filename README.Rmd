@@ -55,9 +55,9 @@ summary(e)
 Follow-up functions includes contrasts examinations with `contrastFrequencies()'.
 
 Power planning can be performed on frequencies using ``anofaPower2N()`` or
-``anofaN2Power`` if you can determine theoretical frequencies.
+``anofaN2Power()`` if you can determine theoretical frequencies.
 
-Finally, `toRaw()`, `toCompiled()`, `toTabulated()`, `toLong()` and `toWide()` 
+Finally, `toRaw()`, `toCompiled()`, `toTabular()`, `toLong()` and `toWide()` 
 can be used to present the frequency data in other formats.
 
 # Installation

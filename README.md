@@ -64,9 +64,9 @@ Follow-up functions includes contrasts examinations with
 \`contrastFrequencies()’.
 
 Power planning can be performed on frequencies using `anofaPower2N()` or
-`anofaN2Power` if you can determine theoretical frequencies.
+`anofaN2Power()` if you can determine theoretical frequencies.
 
-Finally, `toRaw()`, `toCompiled()`, `toTabulated()`, `toLong()` and
+Finally, `toRaw()`, `toCompiled()`, `toTabular()`, `toLong()` and
 `toWide()` can be used to present the frequency data in other formats.
 
 # Installation
@@ -81,7 +81,7 @@ install.packages("ANOFA")
 library(ANOFA)
 ```
 
-The development version 0.1.3 can be accessed through GitHub:
+The development version 0.2.1 can be accessed through GitHub:
 
 ``` r
 devtools::install_github("dcousin3/ANOFA")
@@ -109,7 +109,7 @@ Cousineau (2023).
 # References
 
 <div id="refs" class="references csl-bib-body hanging-indent"
-line-spacing="2">
+entry-spacing="0" line-spacing="2">
 
 <div id="ref-cgh21" class="csl-entry">
 

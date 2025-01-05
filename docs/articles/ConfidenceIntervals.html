@@ -34,7 +34,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ANOFA</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.2.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.2.2</span>
       </span>
     </div>
 
@@ -60,7 +60,7 @@
       <a href="../articles/ConfidenceIntervals.html">Confidence intervals with frequencies</a>
     </li>
     <li>
-      <a href="../articles/RelationsToHiLogLinearModel.html">Relations to HiLogLinear</a>
+      <a href="../articles/RelationsToHiLogLinearModel.html">ANOFA vs HiLogLinear</a>
     </li>
   </ul>
 </li>
@@ -150,7 +150,7 @@ observed frequency <span class="math inline">\(n\)</span>.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dcousin3.github.io/ANOFA/" class="external-link">ANOFA</a></span><span class="op">)</span></span>
 <span><span class="va">w</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/anofa.html">anofa</a></span><span class="op">(</span> <span class="va">obsfreq</span> <span class="op">~</span> <span class="va">vocation</span> <span class="op">*</span> <span class="va">gender</span>, <span class="va">LightMargolin1971</span><span class="op">)</span></span>
-<span><span class="fu"><a href="../reference/count.html">anofaPlot</a></span><span class="op">(</span><span class="va">w</span><span class="op">)</span> </span></code></pre></div>
+<span><span class="fu"><a href="../reference/anofaCount.html">anofaPlot</a></span><span class="op">(</span><span class="va">w</span><span class="op">)</span> </span></code></pre></div>
 <div class="figure">
 <img src="ConfidenceIntervals_files/figure-html/unnamed-chunk-2-1.png" alt="**Figure 1**. The frequencies of the Light &amp; Margolin, 1971, data as a function of aspiration for higher education and as a function of gender. Error bars show difference-adjusted 95% confidence intervals." width="480"><p class="caption">
 <strong>Figure 1</strong>. The frequencies of the Light &amp; Margolin,
@@ -161,7 +161,7 @@ intervals.
 </div>
 <p>You can select only some factors for plotting, with e.g.,</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/count.html">anofaPlot</a></span><span class="op">(</span><span class="va">w</span>, <span class="va">obsfreq</span> <span class="op">~</span> <span class="va">gender</span><span class="op">)</span> </span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/anofaCount.html">anofaPlot</a></span><span class="op">(</span><span class="va">w</span>, <span class="va">obsfreq</span> <span class="op">~</span> <span class="va">gender</span><span class="op">)</span> </span></code></pre></div>
 <div class="figure">
 <img src="ConfidenceIntervals_files/figure-html/unnamed-chunk-3-1.png" alt="**Figure 2**. The frequencies of the Light &amp; Margolin, 1971, data as a function of gender. Error bars show difference-adjusted 95% confidence intervals." width="384"><p class="caption">
 <strong>Figure 2</strong>. The frequencies of the Light &amp; Margolin,
@@ -177,7 +177,7 @@ these are 1960s data…).</p>
 customize it at will. For example,</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
-<span><span class="fu"><a href="../reference/count.html">anofaPlot</a></span><span class="op">(</span><span class="va">w</span>, <span class="va">obsfreq</span> <span class="op">~</span> <span class="va">gender</span><span class="op">)</span> <span class="op">+</span></span>
+<span><span class="fu"><a href="../reference/anofaCount.html">anofaPlot</a></span><span class="op">(</span><span class="va">w</span>, <span class="va">obsfreq</span> <span class="op">~</span> <span class="va">gender</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html" class="external-link">theme_bw</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <div class="figure">
 <img src="ConfidenceIntervals_files/figure-html/unnamed-chunk-4-1.png" alt="**Figure 3**. Same as Figure 2 with some customization." width="384"><p class="caption">

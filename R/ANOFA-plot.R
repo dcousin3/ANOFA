@@ -1,7 +1,7 @@
 ######################################################################################
 #' @title anofaPlot.
 #'
-#' @aliases anofaPlot count init.count CI.count
+#' @aliases anofaPlot anofaCount init.anofaCount CI.anofaCount
 #'
 #' @md
 #'
@@ -9,15 +9,15 @@
 #'      with up to 4 factors according to the
 #'      `ANOFA` framework. See \insertCite{lc23b;textual}{ANOFA} for more. The plot is 
 #'      realized using the `suberb` library; see \insertCite{cgh21;textual}{ANOFA}.
-#'      The functions `count()`, `init.count()` and `CI.count()` are internal functions.
+#'      The functions `anofaCount()`, `init.anofaCount()` and `CI.anofaCount()` are internal functions.
 #'
 #' @usage anofaPlot(w, formula = NULL, confidenceLevel = .95, showPlotOnly = TRUE, 
 #'     plotLayout = "line", plotStyle = NULL, 
 #'     errorbarParams  = list( width =0.5, linewidth=0.75 ), ...)
 #'
-#' @usage count(n)
-#' @usage init.count(df)
-#' @usage CI.count(n, gamma =0.95)
+#' @usage anofaCount(n)
+#' @usage init.anofaCount(df)
+#' @usage CI.anofaCount(n, gamma =0.95)
 #'
 #' @param w An ANOFA object obtained with `anofa()`;
 #'
@@ -113,9 +113,9 @@
 ######################################################################################
 #'
 #' @export anofaPlot
-#' @export count
-#' @export init.count
-#' @export CI.count
+#' @export anofaCount
+#' @export init.anofaCount
+#' @export CI.anofaCount
 #' @importFrom utils capture.output
 #' @importFrom Rdpack reprompt
 #
@@ -125,18 +125,18 @@
 
 # First, we need the summary function that computes the frequency.
 # this is actually the datum when the data are in compiled format, so there is nothing to do.
-count <- function(n) n[1]
+anofaCount <- function(n) n[1]
 
 # Second, we need an initalizer that will fetch the total sample size
-# and dump it in the global environment for later use
-init.count <- function(df) {
+# and dump it in the ANOFA environment for later use
+init.anofaCount <- function(df) {
     # ANOFAtotalcount <<- sum(df$DV)
     assign('ANOFAtotalcount', sum(df$DV), ANOFA.env) 
 }
 
 # Third, we compute the limits using Clopper & Pearson 1934 approach.
 # This is the Leemis and Trivedi (1996) analytic form.
-CI.count <- function(n, gamma=0.95) {
+CI.anofaCount <- function(n, gamma=0.95) {
     #N <- ANOFAtotalcount 
     N <- ANOFA.env$ANOFAtotalcount # shorter to write...
     # Clopper & Pearson CI from Leemis & Trivedi, 1996
@@ -200,7 +200,7 @@ anofaPlot <- function(w,
         res <- superb::superbPlot( cdata,
             BSFactors      = bsfact,
             variables      = as.character(w$freqColumn), # as it may be a symbol
-            statistic      = "count",       # the summary statistics defined above
+            statistic      = "anofaCount",  # the summary statistics defined above
             errorbar       = "CI",          # its precision define above
             gamma          = confidenceLevel,
             # the following is for the look of the plot
@@ -213,7 +213,7 @@ anofaPlot <- function(w,
         res <- superb::superbData( cdata,
             BSFactors      = bsfact,
             variables      = as.character(w$freqColumn), # as it may be a symbol
-            statistic      = "count",       # the summary statistics defined above
+            statistic      = "anofaCount",  # the summary statistics defined above
             errorbar       = "CI",          # its precision define above
             gamma          = confidenceLevel
         )$summaryStatistics

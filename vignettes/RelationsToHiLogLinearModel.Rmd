@@ -1,5 +1,5 @@
 ---
-title: "Relations to HiLogLinear"
+title: "ANOFA vs HiLogLinear"
 bibliography: "../inst/REFERENCES.bib"
 csl: "../inst/apa-6th.csl"
 output: 

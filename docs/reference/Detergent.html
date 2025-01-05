@@ -25,7 +25,7 @@ cold). It is therefore a 3 × 2 × 2 × 2 design with 24 cells."><!-- mathjax --
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ANOFA</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.2.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.2.2</span>
       </span>
     </div>
 
@@ -49,7 +49,7 @@ cold). It is therefore a 3 × 2 × 2 × 2 design with 24 cells."><!-- mathjax --
       <a href="../articles/ConfidenceIntervals.html">Confidence intervals with frequencies</a>
     </li>
     <li>
-      <a href="../articles/RelationsToHiLogLinearModel.html">Relations to HiLogLinear</a>
+      <a href="../articles/RelationsToHiLogLinearModel.html">ANOFA vs HiLogLinear</a>
     </li>
   </ul></li>
 <li>
@@ -117,11 +117,11 @@ cold). It is therefore a 3 × 2 × 2 × 2 design with 24 cells.</p>
 <span class="r-in"><span><span class="va">w</span> <span class="op">&lt;-</span> <span class="fu"><a href="anofa.html">anofa</a></span><span class="op">(</span> <span class="va">Freq</span> <span class="op">~</span>  <span class="va">Temperature</span> <span class="op">*</span> <span class="va">M_User</span> <span class="op">*</span> <span class="va">Preference</span> <span class="op">*</span> <span class="va">Water_softness</span>, <span class="va">dta</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># make a plot with all the factors</span></span></span>
-<span class="r-in"><span><span class="fu"><a href="count.html">anofaPlot</a></span><span class="op">(</span><span class="va">w</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="anofaCount.html">anofaPlot</a></span><span class="op">(</span><span class="va">w</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># ... or with just a few factors</span></span></span>
-<span class="r-in"><span><span class="fu"><a href="count.html">anofaPlot</a></span><span class="op">(</span><span class="va">w</span>, <span class="op">~</span> <span class="va">Preference</span> <span class="op">*</span> <span class="va">M_User</span> <span class="op">)</span></span></span>
-<span class="r-in"><span><span class="fu"><a href="count.html">anofaPlot</a></span><span class="op">(</span><span class="va">w</span>, <span class="op">~</span> <span class="va">Temperature</span> <span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="anofaCount.html">anofaPlot</a></span><span class="op">(</span><span class="va">w</span>, <span class="op">~</span> <span class="va">Preference</span> <span class="op">*</span> <span class="va">M_User</span> <span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="anofaCount.html">anofaPlot</a></span><span class="op">(</span><span class="va">w</span>, <span class="op">~</span> <span class="va">Temperature</span> <span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># extract simple effects</span></span></span>
 <span class="r-in"><span><span class="va">e</span> <span class="op">&lt;-</span> <span class="fu"><a href="emFrequencies.html">emFrequencies</a></span><span class="op">(</span><span class="va">w</span>, <span class="op">~</span> <span class="va">M_User</span> <span class="op">|</span> <span class="va">Preference</span> <span class="op">)</span> </span></span>

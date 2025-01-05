@@ -1,3 +1,7 @@
+# ANOFA 0.2.2 (January 2025)
+
+* Preventing mirorring from other packages using a `count()` function.
+
 # ANOFA 0.2.1 (January 2025)
 
 * Corrected minor bug regarding contrast validation

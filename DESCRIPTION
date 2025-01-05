@@ -1,8 +1,8 @@
 Package: ANOFA
 Type: Package
 Title: Analyses of Frequency Data
-Version: 0.2.1
-Date: 2025-01-04
+Version: 0.2.2
+Date: 2025-01-05
 Authors@R: c(
              person("Denis", "Cousineau", email = "denis.cousineau@uottawa.ca",
                     role = c("aut", "cre")),
